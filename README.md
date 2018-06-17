@@ -23,6 +23,5 @@ You must specify the version at the *end* of the string in `dependency-links`.
 Then run `pip install` in your project's virtual environment.
 
 ```
-pip install --process-dependency-l
-inks git+https://github.com/seahrh/sgcharts-stringx.git
+pip install --process-dependency-links git+https://github.com/seahrh/sgcharts-stringx.git
 ```
