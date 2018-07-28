@@ -68,14 +68,12 @@ def is_number(s):
     :param s: string
     :return: True if string is a number
     """
-    res = True
     try:
         num = float(s)
         # check for "nan" floats
-        res = num == num   # or use `math.isnan(num)`
+        return num == num   # or use `math.isnan(num)`
     except ValueError:
-        res = False
-    return res
+        return False
 
 
 def count_digit(s):
