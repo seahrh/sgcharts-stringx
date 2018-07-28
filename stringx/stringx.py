@@ -1,5 +1,6 @@
 __all__ = [
     'to_str',
+    'to_bytes',
     'strip_punctuation',
     'to_ascii_str',
     'is_number',
@@ -14,12 +15,24 @@ import string
 from unicodedata import normalize
 
 
-def to_str(bytes_or_str):
+def to_str(bytes_or_str, encoding='utf-8'):
+    """Based on Effective Python Item 3:
+    Know the difference between bytes str and unicode
+    """
     if isinstance(bytes_or_str, bytes):
-        value = bytes_or_str.decode('utf-8')
-    else:
-        value = bytes_or_str
-    return value  # Instance of str
+        return bytes_or_str.decode(encoding)
+    # Instance of str
+    return bytes_or_str
+
+
+def to_bytes(bytes_or_str, encoding='utf-8'):
+    """Based on Effective Python Item 3:
+    Know the difference between bytes str and unicode
+    """
+    if isinstance(bytes_or_str, str):
+        return bytes_or_str.encode(encoding)
+    # Instance of bytes
+    return bytes_or_str
 
 
 def strip_punctuation(s):
