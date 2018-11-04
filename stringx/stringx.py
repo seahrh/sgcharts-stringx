@@ -8,10 +8,12 @@ __all__ = [
     'count_alpha',
     'count_upper',
     'count_space',
-    'count_punctuation'
+    'count_punctuation',
+    'split'
 ]
 
 import string
+import re
 from unicodedata import normalize
 
 
@@ -114,3 +116,12 @@ def count_punctuation(s):
         if c in string.punctuation:
             n += 1
     return n
+
+
+def split(delimiters, s, maxsplit=0):
+    """Split the string over an iterable of delimiters.
+
+    Based on https://stackoverflow.com/a/13184791
+    """
+    pattern = '|'.join(map(re.escape, delimiters))
+    return re.split(pattern, s, maxsplit)

@@ -80,6 +80,18 @@ class TestStringx(unittest.TestCase):
         for k, v in aa_map.items():
             self.assertEqual(to_ascii_str(k), v)
 
+    def test_split(self):
+        delimiters = "a", "...", "(c)"
+        inp = "stackoverflow (c) is awesome... isn't it?"
+        e = ['st', 'ckoverflow ', ' is ', 'wesome', " isn't it?"]
+        self.assertListEqual(split(delimiters, inp), e)
+
+    def test_split_punctuation(self):
+        delimiters = '!', '.', '?', ')'
+        inp = "hi there! greetings. how are you? (foo) end"
+        e = ['hi there', ' greetings', ' how are you', ' (foo', ' end']
+        self.assertListEqual(split(delimiters, inp), e)
+
 
 if __name__ == '__main__':
     unittest.main()
