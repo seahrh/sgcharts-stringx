@@ -92,6 +92,13 @@ class TestStringx(unittest.TestCase):
         e = ['hi there', ' greetings', ' how are you', ' (foo', ' end']
         self.assertListEqual(split(delimiters, inp), e)
 
+    def test_title_except(self):
+        exceptions = ['a', 'an', 'of', 'the', 'is']
+        e = 'There is a   Way'
+        self.assertEqual(title_except('there is a   way', exceptions), e)
+        e = 'A Whim   of an Elephant'
+        self.assertEqual(title_except('a whim   of an elephant', exceptions), e)
+
 
 if __name__ == '__main__':
     unittest.main()

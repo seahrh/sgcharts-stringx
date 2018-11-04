@@ -9,7 +9,8 @@ __all__ = [
     'count_upper',
     'count_space',
     'count_punctuation',
-    'split'
+    'split',
+    'title_except'
 ]
 
 import string
@@ -125,3 +126,19 @@ def split(delimiters, s, maxsplit=0):
     """
     pattern = '|'.join(map(re.escape, delimiters))
     return re.split(pattern, s, maxsplit)
+
+
+def title_except(s, exceptions):
+    """
+    Title-case a string with exceptions. Useful for excluding articles like 'a', 'an', 'is', 'of'.
+
+    Based on https://stackoverflow.com/a/3729957
+    :param s: string
+    :param exceptions: exceptions will not be title-cased.
+    :return: string
+    """
+    words = re.split(' ', s)
+    res = [words[0].capitalize()]
+    for word in words[1:]:
+        res.append(word if word in exceptions else word.capitalize())
+    return ' '.join(res)
