@@ -1,4 +1,4 @@
-# sgcharts-stringx
+# sgcharts.stringx
 
 Utility functions for strings
 
@@ -10,11 +10,11 @@ Example `setup.py`
 
 ```python
 install_requires=[
-    'sgcharts-stringx',
+    'sgcharts.stringx',
     ...
 ],
 dependency_links=[
-    'git+https://github.com/seahrh/sgcharts-stringx.git@master#egg=sgcharts-stringx-1.0.0'
+    'git+https://github.com/seahrh/sgcharts.stringx.git@master#egg=sgcharts.stringx-2.0.0'
 ]
 ```
 
@@ -23,5 +23,5 @@ You must specify the version at the *end* of the string in `dependency-links`.
 Then run `pip install` in your project's virtual environment.
 
 ```
-pip install --process-dependency-links git+https://github.com/seahrh/sgcharts-stringx.git
+pip install --process-dependency-links git+https://github.com/seahrh/sgcharts.stringx.git
 ```

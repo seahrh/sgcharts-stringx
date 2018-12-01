@@ -1,5 +1,5 @@
 import unittest
-from stringx.stringx import *
+from sgcharts.stringx import *
 
 
 class TestStringx(unittest.TestCase):
