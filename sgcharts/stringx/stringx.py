@@ -57,12 +57,28 @@ def strip_punctuation(s):
     return s.translate(translator)
 
 
-def to_ascii_str(u):
+def _to_ascii_str_transform_fn(s):
+    res = s.replace('‘', "\'")  # opening single quote
+    res = res.replace('’', "\'")  # closing single quote
+    res = res.replace('“', '\"')  # opening double quote
+    res = res.replace('”', '\"')  # closing double quote
+    return res
+
+
+def to_ascii_str(u, transform_fn=_to_ascii_str_transform_fn):
     """Normalise (normalize) unicode data in Python to remove umlauts, accents etc.
+    Also converts curly quotes [] to straight quotes.
 
     Based on https://gist.github.com/j4mie/557354
     """
-    return to_str(normalize("NFKD", u).encode('ASCII', 'ignore'))
+    # unicodedata normalize
+    # The normal form KD (NFKD) will apply the compatibility decomposition
+    # i.e. replace all compatibility characters with their equivalents.
+    # @url https://docs.python.org/3/library/unicodedata.html
+    res = to_str(u)
+    res = transform_fn(res)
+    res = to_str(normalize("NFKD", res).encode('ASCII', 'ignore'))
+    return res
 
 
 def is_number(s):

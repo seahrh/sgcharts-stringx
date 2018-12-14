@@ -75,7 +75,11 @@ class TestStringx(unittest.TestCase):
             'ü': 'u',
             'ý': 'y',
             'ÿ': 'y',
-            'ž': 'z'
+            'ž': 'z',
+            '‘': "'",
+            '’': "'",
+            '“': '"',
+            '”': '"'
         }
         for k, v in aa_map.items():
             self.assertEqual(to_ascii_str(k), v)
