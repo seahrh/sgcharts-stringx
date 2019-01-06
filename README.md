@@ -1,5 +1,7 @@
 # sgcharts.stringx
 
+[![Build Status](https://travis-ci.org/seahrh/sgcharts.stringx.svg?branch=master)](https://travis-ci.org/seahrh/sgcharts.stringx)
+
 Utility functions for strings
 
 ## Usage 
